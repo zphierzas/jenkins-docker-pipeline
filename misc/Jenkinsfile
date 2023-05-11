@@ -18,8 +18,8 @@ node {
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v2/', 'DockerHubUser') {
-        sh "docker build -t zphierzas/jenkins:${commit_id} -f ." 
-//       def app = docker.build("zphierzas/jenkins:${commit_id}", '.').push()
+//        sh "docker build -t zphierzas/jenkins:${commit_id} -f ." 
+       def app = docker.build("zphierzas/jenkins:${commit_id}", '.').push()
      }
    }
 }
